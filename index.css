@@ -699,8 +699,22 @@ only screen and (min-device-width: 320px) and (max-device-width:1024px) {
                         width: 70vw;
                     }
                 }
+
+                @media only screen and (max-device-height: 410px) {
+                    .form__input {
+                        bottom: -30px;
+                        right: 6px;
+                    }
+
+                    .bubble {
+                        display: none;
+                    }
+
+                    .header__menu {
+                        color: white;
+                    }
+                }
             }
         }
-    }
 
-}
+    }
