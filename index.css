@@ -1,0 +1,706 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home {
+    height: 100vh;
+    color: #6C63FF;
+    font-size: 1.5vmax;
+    display: flex;
+    padding: 0 3vmax;
+}
+
+.home svg {
+    width: 40vw;
+    padding-bottom: 20vh;
+}
+
+#cup {
+    animation: Cup 2s ease-out;
+}
+
+@keyframes Cup {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+#plant {
+    animation: Plant 3s ease-out;
+}
+
+@keyframes Plant {
+    from {
+        transform: translateY(20em);
+    }
+
+    to {
+        transform: translateY(0em);
+    }
+}
+
+#hair {
+    animation: Hair 1.5s ease-out;
+}
+
+@keyframes Hair {
+    from {
+        transform: translateX(200em) rotateZ(1200deg);
+    }
+
+    to {
+        transform: translateX(0em) rotateZ(0deg)
+    }
+}
+
+#hand {
+    animation: Hand 1.5s infinite alternate;
+    transform-origin: left;
+    transform-box: fill-box;
+}
+
+@keyframes Hand {
+    from {
+        transform: rotateY(0deg) rotateZ(-20deg)
+    }
+
+    to {
+        transform: rotateY(30deg) rotateZ(0deg)
+    }
+}
+
+.fancy {
+    margin-top: 30vh;
+    margin-left: 5vw;
+}
+
+span {
+    opacity: 0;
+    transition: all 1s ease;
+    display: inline-block;
+    transform: translateY(50px)
+}
+
+span.fade {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+.fancy1 span {
+    transition: all 2s ease;
+}
+
+.surname {
+    position: absolute;
+    left: 58vw;
+    top: 43vh;
+    transform: rotateZ(90deg);
+    opacity: 0;
+}
+
+span.fade1 {
+    opacity: 1;
+    transform: translateY(0px)
+}
+
+.developer {
+    position: absolute;
+    left: 66vw;
+    top: 55vh;
+    opacity: 0;
+}
+
+.box1 {
+    width: 10vw;
+    margin-top: 5vh;
+    margin-left: 15vw;
+    border: 4px solid #6C63FF;
+    padding: 1vmax;
+    text-align: center;
+    font-weight: 900;
+    color: #6C63FF;
+    position: absolute;
+    animation: box 1s alternate ease-out
+}
+
+@keyframes box {
+    from {
+        transform: translateX(-90em)
+    }
+
+    to {
+        transform: translateX(0em)
+    }
+}
+
+.sb1:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #6C63FF;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #6C63FF;
+    border-bottom: 10px solid transparent;
+    left: 20px;
+    bottom: -23px;
+}
+
+.sb1:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid transparent;
+    left: 24px;
+    bottom: -13px;
+}
+
+.about {
+    height: 100vh;
+}
+
+.home__btn {
+    position: absolute;
+    border: 1px solid #6C63FF;
+    padding: 1vmax 2.5vmax;
+    color: #6C63FF;
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    top: 80vh;
+    right: 10vw;
+    transition: all linear 0.6s;
+    animation: btn 3s forwards
+}
+
+
+.home__btn:hover,
+.home__btn:hover svg path {
+    box-shadow: inset 0px 0px 0px 30px rgba(108, 99, 255, 1);
+    cursor: pointer;
+    color: white;
+    fill: white;
+}
+
+.home__btn-text {
+    font-size: 1.5vmax;
+}
+
+.home__btn svg {
+    width: 1.3vmax;
+    padding: 0;
+    fill: #6C63FF;
+    margin-left: 10px;
+}
+
+@keyframes btn {
+    from {
+        transform: translateX(90em)
+    }
+
+    to {
+        transform: translateX(0em)
+    }
+}
+
+
+
+header {
+    box-shadow: 0px 3px 10px rgba(108, 99, 255, 1);
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    background: #6C63FF;
+}
+
+nav {
+    min-height: 10vh;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav h1,
+nav ul {
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.sections {
+    min-height: 100vh;
+    padding: 0 4vw;
+}
+
+.bubble {
+    position: absolute;
+    z-index: -2;
+    background-color: rgb(138, 132, 250);
+    transform: scale(1.5);
+    transition: all 0.5s;
+}
+
+.about__text-svg {
+    width: 30vw;
+}
+
+
+.about {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.about__text {
+    max-width: 60vw;
+    padding-right: 3vw;
+}
+
+.about__text h1 {
+    margin-bottom: 3vh;
+}
+
+.about__text p {
+    margin-bottom: 3vw;
+}
+
+.about__text-docSvg svg {
+    width: 1.1vw;
+    height: auto;
+    margin-right: 1vw;
+}
+
+.about__text a {
+    margin: auto;
+    color: white;
+    fill: white;
+    background-color: #6C63FF;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid #6C63FF;
+    padding: 0.2vmax 0;
+    width: 20vw;
+    box-shadow: -5px -3px 8px 0px #6C63FF;
+    transition: 1s;
+}
+
+.about__text a:hover {
+    transform: scale(1.1);
+}
+
+.skills {
+    height: 130vh;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.skills__box {
+    width: 30vw;
+    height: 40vh;
+    text-align: center;
+    background-color: rgb(248, 248, 248);
+    margin-bottom: 3vh;
+    border-radius: 5px;
+    border: 1px solid rgb(238, 236, 236);
+    padding: 3rem;
+    box-shadow: inset 0 0 1px 0px black;
+}
+
+.skills__box-logo img {
+    width: 7vmax;
+}
+
+.skills__box-text {
+    margin-top: 4vh;
+    font-size: 1.5vmax;
+}
+
+.html .skills__box-logo:hover,
+.css .skills__box-logo:hover,
+.git .skills__box-logo:hover,
+.gitHub .skills__box-logo:hover {
+    transform: rotateY(180deg)
+}
+
+.js .skills__box-logo:hover {
+    transform: rotateX(10deg)
+}
+
+.react .skills__box-logo:hover {
+    animation: React infinite 1s linear;
+}
+
+@keyframes React {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.sass .skills__box-logo:hover {
+    animation: Sass 1s infinite alternate linear;
+}
+
+@keyframes Sass {
+    from {
+        transform: translateX(-2vw)
+    }
+
+    to {
+        transform: translateX(3vw)
+    }
+}
+
+
+
+.projects {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 10vh;
+}
+
+.swiper-slide {
+    background-color: rgb(150, 143, 252);
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    width: 30vw;
+    height: 65vh;
+}
+
+.swiper-slide:hover {
+    cursor: pointer;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 60vh;
+}
+
+.details {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1vmax;
+    letter-spacing: 0.1vw;
+    background-color: rgb(150, 143, 252)
+}
+
+.contact {
+    margin-top: 20vh;
+}
+
+.form {
+    height: 70vh;
+    display: flex;
+    position: relative;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.form__name,
+.form__email {
+    width: 50%;
+    position: relative;
+    height: 50px;
+    overflow: hidden
+}
+
+.form__name input,
+.form__email input {
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    border-top: none;
+    border: none;
+    outline: none;
+}
+
+.form__name label,
+.form__email label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.form__name label::after,
+.form__email label::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #6C63FF;
+    left: 0;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: all 1s ease;
+}
+
+.content-name {
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: transform 0.3 ease;
+}
+
+.form__email {
+    margin-top: 4vh;
+}
+
+.form__name input:focus+label .content-name,
+.form__name input:valid+label .content-name,
+.form__email input:focus+label .content-name,
+.form__email input:valid+label .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #6C63FF;
+}
+
+.form__name input:focus+.label-name:after,
+.form__name input:valid+.label-name::after,
+.form__email input:focus+.label-name:after,
+.form__email input:valid+.label-name::after {
+    transform: translateX(0%);
+}
+
+
+#message {
+    color: #595f6e;
+    resize: none;
+    width: 50%;
+    height: 30vh;
+    margin-top: 7vh;
+    border-color: black;
+    outline: none;
+    transition: all 0.5s linear;
+}
+
+#message:focus,
+#message:valid {
+    border: 3px solid #6C63FF;
+}
+
+.form__input {
+    position: absolute;
+    right: 22.5vw;
+    bottom: 0;
+    margin-top: 4vh;
+    border: 1px solid #6C63FF;
+    padding: 1vmax 2.5vmax;
+    color: #6C63FF;
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    transition: all linear 0.6s;
+}
+
+.form__input:hover {
+    box-shadow: inset 0px 0px 0px 30px rgba(108, 99, 255, 1);
+    cursor: pointer;
+    color: white;
+    fill: white;
+}
+
+.project__container {
+    display: none;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px),
+only screen and (max-width: 320px),
+only screen and (min-device-width: 320px) and (max-device-width:1024px) {
+    .box1 {
+        display: none;
+    }
+
+    .surname {
+        transform: rotate(0);
+    }
+
+    .about__text-docSvg svg {
+        width: 1.7vmax;
+    }
+
+    .skills__box-text {
+        font-size: 2.5vmax;
+    }
+
+    .about__text p {
+        font-size: 2.2vmax;
+    }
+
+    @media only screen and (max-device-width: 800px) {
+        .project__container {
+            margin: 1vw;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+
+        .project__box img {
+            width: 100%;
+            height: 90%;
+        }
+
+        .project__box {
+            display: flex;
+            flex-flow: column;
+            width: 48vw;
+            height: 40vh;
+            margin-bottom: 3vh;
+        }
+
+        .project__box:hover {
+            cursor: pointer;
+        }
+
+        .project__container-info {
+            font-size: 2.2vmax;
+            padding-top: 0.5vh;
+            color: white;
+            text-align: center;
+            height: 10%;
+            background-color: rgb(150, 143, 252);
+        }
+
+        .home,
+        .swiper-container,
+        .about__text-docSvg svg {
+            display: none;
+        }
+
+        .header__menu {
+            color: #6C63FF;
+        }
+
+        .bubble {
+            background-color: white;
+        }
+
+        @media only screen and (max-device-width: 670px) {
+            .project__box {
+                width: 90vw;
+                height: 50vh;
+            }
+
+            .project__container {
+                justify-content: center;
+            }
+
+            .project__container-info {
+                font-size: 3.3vmax;
+            }
+
+            .about__text p {
+                font-size: 2.5vmax;
+            }
+
+            .about__text-svg {
+                margin-top: 5vh;
+                width: 60vw;
+                height: 50vh;
+            }
+
+            .about {
+                justify-content: unset;
+                flex-flow: column nowrap;
+            }
+
+            .about__text {
+                width: 90%;
+                padding: 0;
+                margin-top: 10vh;
+            }
+
+            .about__text a {
+                width: 40vw;
+                height: 5vh;
+            }
+
+            .skills__box {
+                height: 28vh;
+            }
+
+            @media only screen and (max-device-width: 500px) {
+                .skills__box {
+                    width: 46vw;
+                }
+
+                @media only screen and (max-device-width: 385px) {
+
+                    .about__text a {
+                        font-size: 2.5vmax;
+                        width: 70vw;
+                    }
+                }
+            }
+        }
+    }
+
+}
