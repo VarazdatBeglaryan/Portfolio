@@ -123,7 +123,7 @@ const sections = document.querySelectorAll('.sections');
 const bubble = document.querySelector('.bubble');
 
 const options = {
-    threshold: 0.6,
+    threshold: 0.5,
 }
 
 let observer = new IntersectionObserver(navCheck, options)
@@ -190,6 +190,8 @@ function form(e) {
         email.style.color = 'red'
     }
 }
+
+
 if (window.screen.width <= '800') {
     let lis = document.getElementsByClassName('header__menu')
     lis = [].concat(...lis)
