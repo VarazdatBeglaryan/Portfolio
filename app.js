@@ -183,9 +183,15 @@ function form(e) {
     let email = document.getElementById('email')
     let message = document.getElementById('message')
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(email.value)) {
+    if (!name.value.replace(/\s/g, '').length) {
+        alert("Name only contains whitespace (ie. spaces, tabs or line breaks)")
+    }
+    else if (message.value.replace(/\s/g, '').length) {
+        alert("Message only contains whitespace (ie. spaces, tabs or line breaks)")
+    }
+    else if (re.test(email.value)) {
         email.style.color = '#595f6e';
-        sendEmail(email.value, name.value, message.value)
+        // sendEmail(email.value, name.value, message.value)
         alert('Thank you your message has been sent successfully')
         name.value = ""
         email.value = ''
