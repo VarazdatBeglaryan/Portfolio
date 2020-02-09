@@ -191,7 +191,7 @@ function form(e) {
     }
     else if (re.test(email.value)) {
         email.style.color = '#595f6e';
-        // sendEmail(email.value, name.value, message.value)
+        sendEmail(email.value, name.value, message.value)
         alert('Thank you your message has been sent successfully')
         name.value = ""
         email.value = ''
