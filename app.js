@@ -186,7 +186,7 @@ function form(e) {
     if (!name.value.replace(/\s/g, '').length) {
         alert("Name only contains whitespace (ie. spaces, tabs or line breaks)")
     }
-    else if (message.value.replace(/\s/g, '').length) {
+    else if (!message.value.replace(/\s/g, '').length) {
         alert("Message only contains whitespace (ie. spaces, tabs or line breaks)")
     }
     else if (re.test(email.value)) {
