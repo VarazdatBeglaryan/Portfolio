@@ -7,13 +7,17 @@ var firebaseConfig = {
     messagingSenderId: "100237136426",
     appId: "1:100237136426:web:9b6002f9bb9a85b2006953"
 };
-// Initialize Firebase
+// ! Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
 const text = document.querySelector('.fancy');
 const strText = text.textContent;
 const splitText = strText.split('');
 text.textContent = "";
+
+
+// ! VERY BAD CODE FOR TEXT EFFECTS START HERE
 
 splitText.forEach((_text, index) => {
     text.innerHTML += `<span>${_text}</span>`
@@ -105,6 +109,9 @@ function effect2() {
 }
 
 
+// ! VERY BAD CODE FOR TEXT EFFECTS FINISH HERE
+
+
 //! Anchor animation
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -119,6 +126,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ! NavBar
 
+function navbarOptions(entry) {
+    let className = entry.target.className;
+    className = className.substr(0, className.indexOf(" "))
+    const activeAnchor = document.querySelector(`[data-page=${className}]`)
+    activeAnchor.style.display = 'inline-block'
+    const cords = activeAnchor.getBoundingClientRect();
+    const directions = {
+        height: cords.height,
+        width: cords.width,
+        top: cords.top,
+        left: cords.left
+    }
+    if (entry.isIntersecting) {
+        bubble.style.setProperty('left', `${directions.left}px`);
+        bubble.style.setProperty('top', `${directions.top}px`);
+        bubble.style.setProperty('height', `${directions.height}px`);
+        bubble.style.setProperty('width', `${directions.width}px`);
+        bubble.style.setProperty(`border-radius`, `${20}px`)
+    }
+}
+
+
 const sections = document.querySelectorAll('.sections');
 const bubble = document.querySelector('.bubble');
 
@@ -130,23 +159,7 @@ let observer = new IntersectionObserver(navCheck, options)
 
 function navCheck(entries) {
     entries.forEach(entry => {
-        let className = entry.target.className;
-        className = className.substr(0, className.indexOf(" "))
-        const activeAnchor = document.querySelector(`[data-page=${className}]`)
-        const cords = activeAnchor.getBoundingClientRect();
-        const directions = {
-            height: cords.height,
-            width: cords.width,
-            top: cords.top,
-            left: cords.left
-        }
-        if (entry.isIntersecting) {
-            bubble.style.setProperty('left', `${directions.left}px`);
-            bubble.style.setProperty('top', `${directions.top}`);
-            bubble.style.setProperty('height', `${directions.height}px`);
-            bubble.style.setProperty('width', `${directions.width}px`);
-            bubble.style.setProperty(`border-radius`, `${20}px`)
-        }
+        navbarOptions(entry)
     })
 }
 
@@ -159,6 +172,7 @@ window.addEventListener('scroll', () => {
     }
 })
 
+// ! SLIDER
 
 let swiper = new Swiper('.swiper-container', {
     effect: 'coverflow',
@@ -176,6 +190,9 @@ let swiper = new Swiper('.swiper-container', {
         el: '.swiper-pagination',
     },
 })
+
+
+// ! FORM
 
 function form(e) {
     e.preventDefault()
@@ -201,57 +218,6 @@ function form(e) {
     }
 }
 
-
-if (window.screen.width <= '800') {
-    let lis = document.getElementsByClassName('header__menu')
-    lis = [].concat(...lis)
-    lis.forEach(li => {
-        li.style.display = 'none'
-    })
-    window.addEventListener('scroll', () => {
-        sections.forEach(section => {
-            observer1.observe(section)
-        })
-    })
-}
-
-
-const options1 = {
-    threshold: 0.6,
-}
-
-let observer1 = new IntersectionObserver(navCheck1, options1)
-
-function navCheck1(entries) {
-    if (entries.length = 1) {
-        entries.forEach(entry => {
-            let lis = document.getElementsByClassName('header__menu')
-            lis = [].concat(...lis)
-            lis.forEach(li => {
-                li.style.display = 'none'
-            })
-            let className = entry.target.className;
-            className = className.substr(0, className.indexOf(" "))
-            const activeAnchor = document.querySelector(`[data-page=${className}]`)
-            activeAnchor.style.display = 'inline-block'
-            const cords = activeAnchor.getBoundingClientRect();
-            const directions = {
-                height: cords.height,
-                width: cords.width,
-                top: cords.top,
-                left: cords.left
-            }
-            if (entry.isIntersecting) {
-                bubble.style.setProperty('left', `${directions.left}px`);
-                bubble.style.setProperty('top', `${directions.top}px`);
-                bubble.style.setProperty('height', `${directions.height}px`);
-                bubble.style.setProperty('width', `${directions.width}px`);
-                bubble.style.setProperty(`border-radius`, `${20}px`)
-            }
-        })
-    }
-}
-
 function sendEmail(email, name, message) {
     firebase
         .firestore()
@@ -264,3 +230,45 @@ function sendEmail(email, name, message) {
             }
         )
 }
+
+// ! NAVBAR CHANGES FOR SMALLER DEVICES
+
+if (window.screen.width <= '800') {
+    let lis = document.getElementsByClassName('header__menu')
+    lis = [].concat(...lis)
+    lis.forEach(li => {
+        li.style.display = 'none'
+    })
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            phoneObserver.observe(section)
+        })
+    })
+}
+
+
+const phoneOptions = {
+    threshold: 0.6,
+}
+
+let phoneObserver = new IntersectionObserver(phoneNavCheck, phoneOptions)
+
+function phoneNavCheck(entries) {
+    if (entries.length = 1) {
+        entries.forEach(entry => {
+            let lis = document.getElementsByClassName('header__menu')
+            lis = [].concat(...lis)
+            lis.forEach(li => {
+                li.style.display = 'none'
+            })
+            navbarOptions(entry)
+        })
+    }
+}
+
+
+
+
+
+
+
